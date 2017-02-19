@@ -9,7 +9,7 @@ import Schema from './schema';
 import data from './data.json';
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 // set up our express application ========================================
 // log every request to the console
