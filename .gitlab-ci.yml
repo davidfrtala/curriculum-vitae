@@ -1,17 +1,10 @@
 stages:
-  - test
   - deploy
 
 variables:
   BUILD_PATH: "./build/*"
-  DEPLOY_PATH: "/srv/debnicky/backend/stage"
+  DEPLOY_PATH: "/srv/cv-graphql"
 
-lint:
-  script:
-    - "npm install"
-    - "./node_modules/.bin/gulp lint"
-  stage: test
-  allow_failure: false
 
 deploy:
   tags:
@@ -19,12 +12,12 @@ deploy:
     - unix
   script:
     - "npm install"
-    - "./node_modules/.bin/gulp build:production"
+    - "npm run build"
     - "rsync -rvL --progress --delete $BUILD_PATH $DEPLOY_PATH"
     - "rsync -rvL --progress --delete ./node_modules $DEPLOY_PATH"
-    - "forever restart debnicky-stage"
+    - "forever restart curriculum-vitae"
   stage: deploy
   environment: Stage
   allow_failure: false
   only:
-    - master@debnicky.sk/backend
+    - master@david.frtala/curriculum-vitae
