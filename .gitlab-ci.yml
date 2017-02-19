@@ -1,0 +1,30 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  BUILD_PATH: "./build/*"
+  DEPLOY_PATH: "/srv/debnicky/backend/stage"
+
+lint:
+  script:
+    - "npm install"
+    - "./node_modules/.bin/gulp lint"
+  stage: test
+  allow_failure: false
+
+deploy:
+  tags:
+    - deployServer
+    - unix
+  script:
+    - "npm install"
+    - "./node_modules/.bin/gulp build:production"
+    - "rsync -rvL --progress --delete $BUILD_PATH $DEPLOY_PATH"
+    - "rsync -rvL --progress --delete ./node_modules $DEPLOY_PATH"
+    - "forever restart debnicky-stage"
+  stage: deploy
+  environment: Stage
+  allow_failure: false
+  only:
+    - master@debnicky.sk/backend
