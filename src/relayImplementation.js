@@ -55,6 +55,8 @@ const { nodeInterface, nodeField } = nodeDefinitions(
         return data.experience.work[index];
       case 'volunteer':
         return data.experience.volunteer[index];
+      case 'project':
+        return data.experience.projects[index];
       case 'education':
         return data.education[index];
       case 'tech':
@@ -69,6 +71,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     const {
       educationType,
       workType,
+      projectType,
       skillType
     } = require('./schema');
 
@@ -77,6 +80,8 @@ const { nodeInterface, nodeField } = nodeDefinitions(
         return workType;
       case 'volunteer':
         return workType;
+      case 'project':
+        return projectType;
       case 'tech':
         return skillType;
       case 'lang':

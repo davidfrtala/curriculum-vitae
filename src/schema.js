@@ -42,6 +42,41 @@ export const workType = new GraphQLObjectType({
     end: { type: GraphQLString },
     length: { type: GraphQLString },
     description: { type: GraphQLString },
+    technologies: {
+      type: new GraphQLList(skillType),
+      resolve: ({ technologies }, _, __, { rootValue }) => {
+        const skills = rootValue.skills.technologies;
+        return skills.reduce((memo, item) => {
+          if (technologies.indexOf(item.name) >= 0) {
+            memo.push(item);
+          }
+          return memo;
+        }, []);
+      }
+    }
+  }),
+  interfaces: () => [ nodeInterface ]
+});
+export const projectType = new GraphQLObjectType({
+  name: 'Project',
+  fields: () => ({
+    id: globalIdField('project'),
+    name: { type: GraphQLString },
+    link: { type: GraphQLString },
+    status: { type: GraphQLString },
+    description: { type: GraphQLString },
+    technologies: {
+      type: new GraphQLList(skillType),
+      resolve: ({ technologies }, _, __, { rootValue }) => {
+        const skills = rootValue.skills.technologies;
+        return skills.reduce((memo, item) => {
+          if (technologies.indexOf(item.name) >= 0) {
+            memo.push(item);
+          }
+          return memo;
+        }, []);
+      }
+    }
   }),
   interfaces: () => [ nodeInterface ]
 });
@@ -51,6 +86,7 @@ const experiencekType = new GraphQLObjectType({
   fields: () => ({
     work: connection('work', workType),
     volunteer: connection('volunteer', workType),
+    projects: connection('projects', projectType),
   })
 });
 
@@ -102,16 +138,20 @@ const viewerType = new GraphQLObjectType({
     fullname: { type: GraphQLString, resolve: (root) => root.name+' '+root.surname },
     name: { type: GraphQLString },
     surname: { type: GraphQLString },
+    title: { type: GraphQLString },
     address: { type: GraphQLString },
     phone: { type: GraphQLString },
     email: { type: GraphQLString },
     skype: { type: GraphQLString },
-    experience: { type: experiencekType },
-    skills: { type: skillsType },
-    education: connection('education', educationType),
+    links: {
+      type: new GraphQLList(GraphQLString),
+    },
     hobbies: {
       type: new GraphQLList(GraphQLString),
-    }
+    },
+    experience: { type: experiencekType },
+    skills: { type: skillsType },
+    education: connection('education', educationType)
   })
 });
 

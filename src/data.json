@@ -1,10 +1,23 @@
 {
   "name": "David",
   "surname": "Frtala",
+  "title": "Software Engineer",
   "address": "Bratislava, Slovakia",
   "phone": "+421 949 247 417",
   "email": "david.frtala@gmail.com",
   "skype": "david.frtala",
+  "links": [
+    "http://stackoverflow.com/users/3042366/lorddave",
+    "https://www.hackerrank.com/DavidFrtala",
+    "https://www.linkedin.com/in/davidfrtala/"
+  ],
+  "hobbies": [
+    "Playing Chess",
+    "Cycling",
+    "Reading",
+    "Gymnastic and Calisthenics",
+    "Cinema"
+  ],
   "experience": {
     "work": [
       {
@@ -15,7 +28,22 @@
         "start": "Jan 2016",
         "end": "present",
         "length": "1 year 2 months",
-        "description": "An Alien. Guy for everything."
+        "description": "An Alien. Guy for everything.",
+        "technologies": [
+          "Javascript",
+          "NodeJS",
+          "ReactJS",
+          "GraphQL + Relay",
+          "Git",
+          "PostgreSQL",
+          "MySQL",
+          "Unix, Bash",
+          "HTML/CSS",
+          "PHP",
+          "PHP Nette Framework",
+          "Continuos Integration/Delivery",
+          "Docker"
+        ]
       },
       {
         "id": 2,
@@ -25,7 +53,16 @@
         "start": "Dec 2014",
         "end": "Dec 2015",
         "length": "1 year",
-        "description": ""
+        "description": "I was member of small developer team. My job was to provide maintenance of their intranet systems, written in PHP, generate DB reports for sales department (using Microsoft SRSS/SISS platform or by direct DB query), debugging, error tracking and fixing.",
+        "technologies": [
+          "Javascript",
+          "Git",
+          "PostgreSQL",
+          "MS SQL",
+          "HTML/CSS",
+          "PHP",
+          "PHP Nette Framework"
+        ]
       },
       {
         "id": 3,
@@ -35,7 +72,14 @@
         "start": "Sep 2012",
         "end": "May 2015",
         "length": "2 years 9 months",
-        "description": ""
+        "description": "Building custom intranet solutions for our clients. My role was to analyze client's needs and develop a solution for him. From analyze through model, develop to testing and deploying.",
+        "technologies": [
+          "Javascript",
+          "Git",
+          "PostgreSQL",
+          "HTML/CSS",
+          "PHP Nette Framework"
+        ]
       },
       {
         "id": 4,
@@ -45,7 +89,12 @@
         "start": "Jul 2011",
         "end": "present",
         "length": "",
-        "description": ""
+        "description": "This company is my Father's firm. I'm providing him the whole IT background support",
+        "technologies": [
+          "Javascript",
+          "HTML/CSS",
+          "PHP"
+        ]
       }
     ],
     "volunteer": [
@@ -57,10 +106,49 @@
         "start": "May 2011",
         "end": "Oct 2012",
         "length": "1 year 6 months",
-        "description": ""
+        "description": "IAESTE stands for The International Association for the Exchange of Students for Technical Experience.",
+        "technologies": [
+          "Javascript",
+          "Git",
+          "HTML/CSS",
+          "MySQL",
+          "PHP",
+          "PHP Nette Framework"
+        ]
       }
     ],
-    "projects": {}
+    "projects": [
+      {
+        "id": 1,
+        "_type": "project",
+        "name": "Life Art",
+        "link": "http://lifeart.scalabs.it",
+        "status": "stage",
+        "description": "",
+        "technologies": [
+          "Javascript",
+          "NodeJS",
+          "Git",
+          "HTML/CSS",
+          "PHP"
+        ]
+      },
+      {
+        "id": 2,
+        "_type": "project",
+        "name": "Studio V/A",
+        "link": "http://studiova.co",
+        "status": "production",
+        "description": "My friend needed a reservation system for his gym, where he's doing group trainings. So I developed a custom solution for his needs, written in PHP Nette Framework, MySQL database and Bootstrap HTML/CSS frontend. System is connected to invoice system API (Billdu)",
+        "technologies": [
+          "Javascript",
+          "Git",
+          "MySQL",
+          "HTML/CSS",
+          "PHP Nette Framework"
+        ]
+      }
+    ]
   },
   "education": [
     {
@@ -87,13 +175,23 @@
     }
   ],
   "skills": {
+    "communication": [
+      "Experienced in communication with clients",
+      "Teamplayer",
+      "Slack :)"
+    ],
+    "organisational": [
+      "Organisational skills gained as IT Leader",
+      "Agile & Scrum",
+      "JIRA"
+    ],
     "languages": [
       {
         "id": 1,
         "_type": "lang",
         "name": "English",
         "level": "Intermediate B1",
-        "description": ""
+        "description": "Good reading and understanding. Speaking has a little issues."
       },
       {
         "id": 2,
@@ -136,7 +234,7 @@
         "id": 5,
         "_type": "tech",
         "name": "Redux",
-        "level": "Beginer",
+        "level": "Beginner",
         "description": ""
       },
       {
@@ -191,29 +289,24 @@
       {
         "id": 13,
         "_type": "tech",
-        "name": "JIRA, Agile",
-        "level": "Advanced",
+        "name": "Continuos Integration/Delivery",
+        "level": "intermediate",
         "description": ""
       },
       {
         "id": 14,
         "_type": "tech",
         "name": "Docker",
-        "level": "Beginer",
+        "level": "Beginner",
         "description": ""
       },
       {
         "id": 15,
         "_type": "tech",
-        "name": "Continuos Integration/Delivery",
-        "level": "intermediate",
+        "name": "MySQL",
+        "level": "Advanced",
         "description": ""
       }
     ]
-  },
-  "hobbies": [
-    "Playing Chess",
-    "Cycling",
-    "Reading"
-  ]
+  }
 }
