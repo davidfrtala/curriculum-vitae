@@ -2,13 +2,14 @@
   "name": "David",
   "surname": "Frtala",
   "title": "Software Engineer",
+  "started_in": 2007,
   "address": "Bratislava, Slovakia",
   "region": "Central Europe",
   "phone": "+421 949 247 417",
   "email": "david.frtala@gmail.com",
   "skype": "david.frtala",
   "links": [
-    "http://stackoverflow.com/users/3042366/lorddave",
+    "https://stackoverflow.com/users/3042366/lorddave",
     "https://www.hackerrank.com/DavidFrtala",
     "https://www.linkedin.com/in/davidfrtala/"
   ],
@@ -17,7 +18,8 @@
     "Cycling",
     "Reading",
     "Gymnastic and Calisthenics",
-    "Cinema"
+    "Movies & Cinema",
+    "Airsoft, Volleyball"
   ],
   "experience": {
     "work": [
@@ -29,7 +31,7 @@
         "start": "Jan 2016",
         "end": "present",
         "length": "1 year 2 months",
-        "description": "An Alien. Guy for everything.",
+        "description": "An Alien. Guy for everything. My work begin from contacting a potential client, negotiate, make a deal and start working on it. That means analyze a client's needs, find a suitable solution for him, develop and deliver it. After that, maintain it and be ready for everything",
         "technologies": [
           "Javascript",
           "NodeJS",
@@ -43,6 +45,7 @@
           "PHP",
           "PHP Nette Framework",
           "Continuos Integration/Delivery",
+          "Amazon Web Services",
           "Docker"
         ]
       },
@@ -54,7 +57,7 @@
         "start": "Dec 2014",
         "end": "Dec 2015",
         "length": "1 year",
-        "description": "I was member of small developer team. My job was to provide maintenance of their intranet systems, written in PHP, generate DB reports for sales department (using Microsoft SRSS/SISS platform or by direct DB query), debugging, error tracking and fixing.",
+        "description": "I was a member of small development team. My job was to provide maintenance of their intranet systems, written in PHP, generate DB reports for sales department (using Microsoft SSRS / SSIS platform or by direct DB query), debugging, error tracking and fixing.",
         "technologies": [
           "Javascript",
           "Git",
@@ -73,7 +76,7 @@
         "start": "Sep 2012",
         "end": "May 2015",
         "length": "2 years 9 months",
-        "description": "Building custom intranet solutions for our clients. My role was to analyze client's needs and develop a solution for him. From analyze through model, develop to testing and deploying.",
+        "description": "Building a custom intranet solutions for our clients. My role was to analyze client's needs and develop a solution for him. From analyze through model, develop to testing and deploying.",
         "technologies": [
           "Javascript",
           "Git",
@@ -92,6 +95,7 @@
         "length": "",
         "description": "This company is my Father's firm. I'm providing him the whole IT background support",
         "technologies": [
+          "Adobe Photoshop",
           "Javascript",
           "HTML/CSS",
           "PHP"
@@ -107,7 +111,7 @@
         "start": "May 2011",
         "end": "Oct 2012",
         "length": "1 year 6 months",
-        "description": "IAESTE stands for The International Association for the Exchange of Students for Technical Experience.",
+        "description": "IAESTE stands for The International Association for the Exchange of Students for Technical Experience. IAESTE is an student organization. It's managed and developed by students, who decided to be proactive during their study. I matured from a member to IT Leader with nationwide responsibility for our IT systems and IT teamwork",
         "technologies": [
           "Javascript",
           "Git",
@@ -125,8 +129,10 @@
         "name": "Life Art",
         "link": "http://lifeart.scalabs.it",
         "status": "stage",
-        "description": "",
+        "description": "For my client I have designed a modern, clean and responsive layout as her new web identity. I speed up the development process with Bootstrap Grid, LESS and Gulp with server refresh",
         "technologies": [
+          "Adobe Photoshop",
+          "Amazon Web Services",
           "Javascript",
           "NodeJS",
           "Git",
@@ -208,105 +214,126 @@
         "_type": "tech",
         "name": "Javascript",
         "level": "Intermediate",
-        "description": ""
+        "description": "In past I used jQuery (as most developers in that time) to build interactive elements in websites. Today is javascript my Number One language to write web, mobile and even desktop applications"
       },
       {
         "id": 2,
         "_type": "tech",
         "name": "NodeJS",
         "level": "Intermediate",
-        "description": ""
+        "description": "Developing both backend and frontend applications. Using tools such as Gulp, Webpack, Express, Sequelize, ESLint, Passport, Trails Framework, Flowtype (for type checking), Babel ES6, etc."
       },
       {
         "id": 3,
         "_type": "tech",
         "name": "ReactJS",
         "level": "Intermediate",
-        "description": ""
+        "description": "Programming responsive and well composed SPA applications, using Webpack 2, CSS modules and Higher-Order components"
       },
       {
         "id": 4,
         "_type": "tech",
         "name": "GraphQL + Relay",
         "level": "Advanced",
-        "description": ""
+        "description": "If you're reading this, you probably already know, what GraphQL is ;)"
       },
       {
         "id": 5,
         "_type": "tech",
         "name": "Redux",
         "level": "Beginner",
-        "description": ""
+        "description": "Basic experience with Redux state managment"
       },
       {
         "id": 6,
         "_type": "tech",
         "name": "Git",
         "level": "Intermediate",
-        "description": ""
+        "description": "All my work is stored on my private Gitlab server, even if I am the only user of that project :) I am able to use the most common git commands to version software, resolve development conflicts and manage team contributions, using Github Flow pattern"
       },
       {
         "id": 7,
         "_type": "tech",
         "name": "PostgreSQL",
         "level": "Advanced",
-        "description": ""
+        "description": "I have experience to model, design and build databases, even the large ones (in M+ records). Also I can write and optimize queries, views and procedures"
       },
       {
         "id": 8,
         "_type": "tech",
         "name": "MS SQL",
         "level": "Advanced",
-        "description": ""
+        "description": "I have experience to model, design and build databases, even the large ones (in M+ records). Also I can write and optimize queries, views and procedures"
       },
       {
         "id": 9,
         "_type": "tech",
-        "name": "Unix, Bash",
-        "level": "intermediate",
+        "name": "MySQL",
+        "level": "Advanced",
         "description": ""
       },
       {
         "id": 10,
         "_type": "tech",
-        "name": "HTML/CSS",
-        "level": "Advanced",
-        "description": ""
+        "name": "NoSQL",
+        "level": "Beginner",
+        "description": "NoSQL databases (like MongoDB, CouchDB or DynamoDB) are good when I need to quickly prototype an app. I have an basic experience with NoSQL databases"
       },
       {
         "id": 11,
         "_type": "tech",
-        "name": "PHP",
-        "level": "Advanced",
-        "description": ""
+        "name": "Unix, Bash",
+        "level": "intermediate",
+        "description": "Basicly, I don't like working under Windows OS, so I've been using unix based systems (Ubuntu, Debian, Mac OS) for ages, and Terminal is my close friend :)"
       },
       {
         "id": 12,
         "_type": "tech",
-        "name": "PHP Nette Framework",
+        "name": "HTML/CSS",
         "level": "Advanced",
-        "description": ""
+        "description": "Building responsive websites with Twitter Bootstrap or Zurb Foundation CSS frameworks. In these days I compose styles with SCSS preprocessor and strip all the unnecessary SCSS modules from Bootstrap/Foundation, except Grid system, and do the rest by my own."
       },
       {
         "id": 13,
         "_type": "tech",
-        "name": "Continuos Integration/Delivery",
-        "level": "intermediate",
-        "description": ""
+        "name": "PHP",
+        "level": "Advanced",
+        "description": "For a long time I've been developing websites with PHP. Using MVC architecture pattern, Composer, Dependency Injection and Propel ORM I was able to create a robust and maintainable applications"
       },
       {
         "id": 14,
         "_type": "tech",
-        "name": "Docker",
-        "level": "Beginner",
-        "description": ""
+        "name": "PHP Nette Framework",
+        "level": "Advanced",
+        "description": "After creating my own framework with little no future, I started to using Nette Framework as a backbone of my PHP applications"
       },
       {
         "id": 15,
         "_type": "tech",
-        "name": "MySQL",
-        "level": "Advanced",
-        "description": ""
+        "name": "Continuos Integration/Delivery",
+        "level": "intermediate",
+        "description": "With proper CI/CD and Github Workflow I can rapidly speed up my development process, from 'git push' to run all tests and finally stage/deploy. Using Gitlab CI tools and AWS infrastructure"
+      },
+      {
+        "id": 16,
+        "_type": "tech",
+        "name": "Docker",
+        "level": "Beginner",
+        "description": "Basic experience with creating an image and container managment"
+      },
+      {
+        "id": 17,
+        "_type": "tech",
+        "name": "Adobe Photoshop",
+        "level": "Intermediate",
+        "description": "I'm fully capable of design a app layout from scratch. If it needs to. But I'm glad to leave it to other professionals :)"
+      },
+      {
+        "id": 18,
+        "_type": "tech",
+        "name": "Amazon Web Services",
+        "level": "Intermediate",
+        "description": "AWS is backbone for my whole operations. From classic EC2 instances to ECS Docker containers, Databases to Lambda services"
       }
     ]
   }

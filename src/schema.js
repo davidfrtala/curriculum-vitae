@@ -2,6 +2,7 @@
 import {
   GraphQLSchema,
   GraphQLObjectType,
+  GraphQLInt,
   GraphQLString,
   GraphQLNonNull,
   GraphQLID,
@@ -11,7 +12,8 @@ import {
 
 import {
   toGlobalId,
-  globalIdField
+  globalIdField,
+  mutationWithClientMutationId
 } from 'graphql-relay';
 
 import {
@@ -20,12 +22,10 @@ import {
   nodeInterface
 } from './relayImplementation';
 
-/*
- * GraphQL mutations
+
+/**
+ * @var GraphQLObjectType
  */
-import JobOffer from './jobMutation';
-
-
 export const workType = new GraphQLObjectType({
   name: 'Work',
   fields: () => ({
@@ -56,6 +56,11 @@ export const workType = new GraphQLObjectType({
   }),
   interfaces: () => [ nodeInterface ]
 });
+
+
+/**
+ * @var GraphQLObjectType
+ */
 export const projectType = new GraphQLObjectType({
   name: 'Project',
   fields: () => ({
@@ -81,6 +86,10 @@ export const projectType = new GraphQLObjectType({
   interfaces: () => [ nodeInterface ]
 });
 
+
+/**
+ * @var GraphQLObjectType
+ */
 const experiencekType = new GraphQLObjectType({
   name: 'Experience',
   fields: () => ({
@@ -90,6 +99,10 @@ const experiencekType = new GraphQLObjectType({
   })
 });
 
+
+/**
+ * @var GraphQLObjectType
+ */
 export const educationType = new GraphQLObjectType({
   name: 'Education',
   fields: () => ({
@@ -105,6 +118,10 @@ export const educationType = new GraphQLObjectType({
   interfaces: () => [ nodeInterface ]
 });
 
+
+/**
+ * @var GraphQLObjectType
+ */
 export const skillType = new GraphQLObjectType({
   name: 'Skill',
   fields: () => ({
@@ -121,16 +138,22 @@ export const skillType = new GraphQLObjectType({
 });
 
 
+/**
+ *
+ * @var GraphQLObjectType
+ */
 const skillsType = new GraphQLObjectType({
   name: 'Skills',
   fields: () => ({
-    languages: {
-      type: new GraphQLList(skillType),
-    },
+    languages: { type: new GraphQLList(skillType) },
     technologies: connection('technologies', skillType),
   })
 });
 
+
+/**
+ * @var GraphQLObjectType
+ */
 const viewerType = new GraphQLObjectType({
   name: 'viewer',
   fields: () => ({
@@ -139,6 +162,11 @@ const viewerType = new GraphQLObjectType({
     name: { type: GraphQLString },
     surname: { type: GraphQLString },
     title: { type: GraphQLString },
+    started_in: { type: GraphQLInt },
+    years_of_practice: {
+      type: GraphQLInt,
+      resolve: (root) => (new Date().getFullYear()) - root.started_in
+    },
     address: { type: GraphQLString },
     region: { type: GraphQLString },
     phone: { type: GraphQLString },
@@ -156,6 +184,7 @@ const viewerType = new GraphQLObjectType({
   })
 });
 
+
 /**
  * Our root QUERY node
  * @var GraphQLObjectType
@@ -171,6 +200,22 @@ const queryType = new GraphQLObjectType({
   })
 });
 
+
+/**
+ * @var GraphQLObjectType
+ */
+export const JobOffer = mutationWithClientMutationId({
+  name: 'JobOffer',
+  inputFields: {},
+  outputFields: {
+  },
+  mutateAndGetPayload: () => ({
+    // TODO:
+    // send me an message
+  })
+});
+
+
 /**
  * Our root MUTATION node
  * @var GraphQLObjectType
@@ -181,6 +226,7 @@ const mutationType = new GraphQLObjectType({
     offerJob: JobOffer,
   })
 });
+
 
 /**
  * Final GraphQL schema
