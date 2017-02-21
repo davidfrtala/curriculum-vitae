@@ -1,6 +1,4 @@
-/**
- * Created by dave on 17.2.2017.
- */
+/* @flow */
 import {
   connectionFromArray,
   connectionArgs,
@@ -14,16 +12,27 @@ import {
   GraphQLList
 } from 'graphql';
 
-export function connection(prop, type) {
+import type {
+  GraphQLOutputType,
+  GraphQLFieldConfig
+} from 'graphql';
 
+/**
+ * Construct a graphql connection field config.
+ *
+ * @param string prop
+ * @param GraphQLOutputType type
+ * @returns {{type, args, resolve: resolve}}
+ */
+export function connection(
+  prop: string,
+  type: GraphQLOutputType
+): GraphQLFieldConfig<*, *> {
   const { connectionType } = connectionDefinitions({
     name: prop,
     nodeType: type,
     connectionFields: () => ({
-      totalCount: {
-        type: GraphQLInt,
-        resolve: conn => conn.totalCount
-      },
+      totalCount: { type: GraphQLInt },
       [prop]: {
         type: new GraphQLList(type),
         resolve: conn => conn.edges.map(edge => edge.node),
@@ -44,6 +53,7 @@ export function connection(prop, type) {
     },
   };
 }
+
 const { nodeInterface, nodeField } = nodeDefinitions(
   globalId => {
     const { type, id } = fromGlobalId(globalId);

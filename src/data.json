@@ -3,6 +3,7 @@
   "surname": "Frtala",
   "title": "Software Engineer",
   "address": "Bratislava, Slovakia",
+  "region": "Central Europe",
   "phone": "+421 949 247 417",
   "email": "david.frtala@gmail.com",
   "skype": "david.frtala",
@@ -198,7 +199,7 @@
         "_type": "lang",
         "name": "Slovak",
         "level": "Mother tongue",
-        "description": ""
+        "description": "K tomuto nemám čo dodať :) Azda že naša slovenčina je krásny, lubozvučný jazyk"
       }
     ],
     "technologies": [

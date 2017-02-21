@@ -1,6 +1,7 @@
 #!/usr/bin/env babel-node
 import gulp from 'gulp';
 import babel from 'gulp-babel';
+import flow from 'gulp-flowtype';
 import del from 'del';
 import server from 'gulp-develop-server';
 
@@ -19,7 +20,18 @@ gulp.task('clean', () => {
   return del([config.build + '/**/*']);
 });
 
-gulp.task('build', ['clean'], () => {
+gulp.task('typecheck', function() {
+  return gulp.src(config.src)
+    .pipe(flow({
+      all: false,
+      weak: false,
+      killFlow: false,
+      beep: true,
+      abort: true
+    }))
+});
+
+gulp.task('build', ['typecheck', 'clean'], () => {
   gulp.src(config.data)
     .pipe(gulp.dest(config.build));
 
@@ -30,5 +42,6 @@ gulp.task('build', ['clean'], () => {
 
 // main development task
 gulp.task('develop', ['startup'], () => {
+  gulp.watch(config.src, ['typecheck']);
   gulp.watch(config.src, server.restart);
 });

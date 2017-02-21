@@ -1,6 +1,4 @@
-/**
- * Created by dave on 17.2.2017.
- */
+/* @flow */
 import {
   GraphQLSchema,
   GraphQLObjectType,
@@ -45,6 +43,7 @@ export const workType = new GraphQLObjectType({
     technologies: {
       type: new GraphQLList(skillType),
       resolve: ({ technologies }, _, __, { rootValue }) => {
+        //$FlowIssue nieco
         const skills = rootValue.skills.technologies;
         return skills.reduce((memo, item) => {
           if (technologies.indexOf(item.name) >= 0) {
@@ -68,6 +67,7 @@ export const projectType = new GraphQLObjectType({
     technologies: {
       type: new GraphQLList(skillType),
       resolve: ({ technologies }, _, __, { rootValue }) => {
+        //$FlowIssue
         const skills = rootValue.skills.technologies;
         return skills.reduce((memo, item) => {
           if (technologies.indexOf(item.name) >= 0) {
@@ -140,6 +140,7 @@ const viewerType = new GraphQLObjectType({
     surname: { type: GraphQLString },
     title: { type: GraphQLString },
     address: { type: GraphQLString },
+    region: { type: GraphQLString },
     phone: { type: GraphQLString },
     email: { type: GraphQLString },
     skype: { type: GraphQLString },

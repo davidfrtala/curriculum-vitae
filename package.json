@@ -1,22 +1,21 @@
 {
-  "name": "curiculum",
+  "name": "curriculum-vitae",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "My personal Curriculum Vitae as a GraphQL schema",
+  "main": "index.js",
   "scripts": {
     "start": "npm run build && node ./build/server.js",
     "build": "gulp build",
-    "dev": "gulp develop",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp develop"
   },
-  "keywords": [],
-  "author": "",
+  "author": "David Frtala",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
@@ -29,6 +28,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-develop-server": "^0.5.2",
+    "gulp-flowtype": "^1.0.0",
     "morgan": "^1.8.1"
   }
 }

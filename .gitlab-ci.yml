@@ -5,7 +5,6 @@ variables:
   BUILD_PATH: "./build/*"
   DEPLOY_PATH: "/srv/cv-graphql"
 
-
 deploy:
   tags:
     - deployServer

@@ -1,6 +1,4 @@
-/**
- * Created by dave on 17.2.2017.
- */
+/* @flow */
 import {
   mutationWithClientMutationId
 } from 'graphql-relay';

@@ -1,0 +1,10 @@
+[ignore]
+.*/node_modules/flow-bin/.*
+.*/node_modules/gulp-flowtype/.*
+
+[include]
+
+[libs]
+
+[options]
+suppress_comment=.*\\$FlowIssue

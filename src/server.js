@@ -1,6 +1,4 @@
-/**
- * Created by dave on 17.2.2017.
- */
+/* @flow */
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import bodyParser from 'body-parser';
@@ -15,14 +13,14 @@ const PORT = 4000;
 // log every request to the console
 app.use(logger('dev'));
 
-// Use body-parser to get POST requests for API use
+// Using body-parser to get POST requests for API use
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // GraphQL endpoint
 app.use('/',
   bodyParser.text({ type: 'application/graphql' }),
-  graphqlHTTP( (req) => {
+  graphqlHTTP( () => {
     const startTime = Date.now();
     return {
       schema: Schema,
