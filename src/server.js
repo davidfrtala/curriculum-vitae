@@ -20,13 +20,13 @@ app.use(bodyParser.json());
 // GraphQL endpoint
 app.use('/',
   bodyParser.text({ type: 'application/graphql' }),
-  graphqlHTTP( () => {
+  graphqlHTTP(() => {
     const startTime = Date.now();
     return {
       schema: Schema,
       graphiql: true,
       rootValue: data,
-      extensions: () => ({runTime: Date.now() - startTime })
+      extensions: () => ({ runTime: Date.now() - startTime })
     };
   })
 );

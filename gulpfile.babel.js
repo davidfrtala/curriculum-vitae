@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import flow from 'gulp-flowtype';
+import eslint from 'gulp-eslint';
 import del from 'del';
 import server from 'gulp-develop-server';
 
@@ -31,6 +32,13 @@ gulp.task('typecheck', function() {
     }))
 });
 
+gulp.task('lint', () => {
+  return gulp.src(config.src)
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
 gulp.task('build', ['typecheck', 'clean'], () => {
   gulp.src(config.data)
     .pipe(gulp.dest(config.build));
@@ -42,6 +50,6 @@ gulp.task('build', ['typecheck', 'clean'], () => {
 
 // main development task
 gulp.task('develop', ['startup'], () => {
-  gulp.watch(config.src, ['typecheck']);
+  gulp.watch(config.src, ['lint', 'typecheck']);
   gulp.watch(config.src, server.restart);
 });

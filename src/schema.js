@@ -6,7 +6,6 @@ import {
   GraphQLString,
   GraphQLNonNull,
   GraphQLID,
-  GraphQLEnumType,
   GraphQLList
 } from 'graphql';
 
@@ -26,13 +25,32 @@ import {
 /**
  * @var GraphQLObjectType
  */
+export const skillType = new GraphQLObjectType({
+  name: 'Skill',
+  fields: () => ({
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      description: 'The ID of an object',
+      resolve: ({ _type, id }) => toGlobalId(_type, id)
+    },
+    name: { type: GraphQLString },
+    level: { type: GraphQLString },
+    description: { type: GraphQLString }
+  }),
+  interfaces: () => [nodeInterface]
+});
+
+
+/**
+ * @var GraphQLObjectType
+ */
 export const workType = new GraphQLObjectType({
   name: 'Work',
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLID),
       description: 'The ID of an object',
-      resolve: ({ _type, id })  => toGlobalId(_type, id)
+      resolve: ({ _type, id }) => toGlobalId(_type, id)
     },
     company: { type: GraphQLString },
     position: { type: GraphQLString },
@@ -43,7 +61,7 @@ export const workType = new GraphQLObjectType({
     technologies: {
       type: new GraphQLList(skillType),
       resolve: ({ technologies }, _, __, { rootValue }) => {
-        //$FlowIssue nieco
+        // $FlowIssue nieco
         const skills = rootValue.skills.technologies;
         return skills.reduce((memo, item) => {
           if (technologies.indexOf(item.name) >= 0) {
@@ -54,7 +72,7 @@ export const workType = new GraphQLObjectType({
       }
     }
   }),
-  interfaces: () => [ nodeInterface ]
+  interfaces: () => [nodeInterface]
 });
 
 
@@ -72,7 +90,7 @@ export const projectType = new GraphQLObjectType({
     technologies: {
       type: new GraphQLList(skillType),
       resolve: ({ technologies }, _, __, { rootValue }) => {
-        //$FlowIssue
+        // $FlowIssue
         const skills = rootValue.skills.technologies;
         return skills.reduce((memo, item) => {
           if (technologies.indexOf(item.name) >= 0) {
@@ -83,7 +101,7 @@ export const projectType = new GraphQLObjectType({
       }
     }
   }),
-  interfaces: () => [ nodeInterface ]
+  interfaces: () => [nodeInterface]
 });
 
 
@@ -115,26 +133,7 @@ export const educationType = new GraphQLObjectType({
     start: { type: GraphQLString },
     end: { type: GraphQLString },
   }),
-  interfaces: () => [ nodeInterface ]
-});
-
-
-/**
- * @var GraphQLObjectType
- */
-export const skillType = new GraphQLObjectType({
-  name: 'Skill',
-  fields: () => ({
-    id: {
-      type: new GraphQLNonNull(GraphQLID),
-      description: 'The ID of an object',
-      resolve: ({ _type, id })  => toGlobalId(_type, id)
-    },
-    name: { type: GraphQLString },
-    level: { type: GraphQLString },
-    description: { type: GraphQLString }
-  }),
-  interfaces: () => [ nodeInterface ]
+  interfaces: () => [nodeInterface]
 });
 
 
@@ -157,15 +156,18 @@ const skillsType = new GraphQLObjectType({
 const viewerType = new GraphQLObjectType({
   name: 'viewer',
   fields: () => ({
-    id: globalIdField("viewer"),
-    fullname: { type: GraphQLString, resolve: (root) => root.name+' '+root.surname },
+    id: globalIdField('viewer'),
+    fullname: {
+      type: GraphQLString,
+      resolve: root => `${root.name} ${root.surname}`
+    },
     name: { type: GraphQLString },
     surname: { type: GraphQLString },
     title: { type: GraphQLString },
     started_in: { type: GraphQLInt },
     years_of_practice: {
       type: GraphQLInt,
-      resolve: (root) => (new Date().getFullYear()) - root.started_in
+      resolve: root => (new Date().getFullYear()) - root.started_in
     },
     address: { type: GraphQLString },
     region: { type: GraphQLString },

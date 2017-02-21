@@ -55,10 +55,10 @@ export function connection(
 }
 
 const { nodeInterface, nodeField } = nodeDefinitions(
-  globalId => {
+  (globalId) => {
     const { type, id } = fromGlobalId(globalId);
-    const data = require('./data.json');
-    const index = id -1;
+    const data = require('./data.json'); // eslint-disable-line global-require
+    const index = id - 1;
 
     switch (type) {
       case 'work':
@@ -77,15 +77,15 @@ const { nodeInterface, nodeField } = nodeDefinitions(
         throw new Error('Data not found');
     }
   },
-  obj => {
+  ({ _type }) => {
     const {
       educationType,
       workType,
       projectType,
       skillType
-    } = require('./schema');
+    } = require('./schema');    // eslint-disable-line global-require
 
-    switch (obj._type) {
+    switch (_type) {
       case 'work':
         return workType;
       case 'volunteer':
