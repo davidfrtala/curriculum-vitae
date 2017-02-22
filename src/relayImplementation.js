@@ -83,7 +83,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
       workType,
       projectType,
       skillType
-    } = require('./schema');    // eslint-disable-line global-require
+    } = require('./schema'); // eslint-disable-line global-require
 
     switch (_type) {
       case 'work':
