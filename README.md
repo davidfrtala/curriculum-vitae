@@ -11,6 +11,13 @@ yarn install
 npm start
 ```
 
+or run as `Docker` container
+
+```sh
+docker build curriculum-vitae
+docker run -d -p 4000:4000 curriculum-vitae
+```
+
 then you should see in output, that server is running on `http://localhost:4000`
 
 ## Full preview
